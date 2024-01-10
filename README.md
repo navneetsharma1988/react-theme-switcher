@@ -1,3 +1,9 @@
+# React App - Implement Light/ Dark mode theme switcher using Context API (main branch) & Redux Toolkit (rtk-version branch).
+
+## Step to run -
+1. `npm install`
+2. `npm run dev`
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
