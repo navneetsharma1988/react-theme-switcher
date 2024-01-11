@@ -5,12 +5,21 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Blog from './pages/Blog'
 import Navbar from './components/Navbar'
-import { ThemeProvider } from './context/Theme'
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { ThemeState } from './store/themeSlice'
 
 function App() {
 
+  const isDarkMode = useSelector<ThemeState>(state => state.isDarkMode);
+  const theme = isDarkMode ? "dark" : "light"
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
-    <ThemeProvider>
+    // <ThemeProvider>
       <BrowserRouter>
         {/* navbar */}
         <Navbar />
@@ -21,7 +30,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
         </Routes>
       </BrowserRouter>
-    </ThemeProvider>
+    // </ThemeProvider>
   )
 }
 
